@@ -19,15 +19,19 @@
   </div>
 </div>
 
-<script>$(function () {
-        $('#btn-all').on('click', function () {
-            $.get('api/PatientRecords', function (data) {
-                $('#result').empty();
-                $.each(data, function (i, v) {
-                    $('#result').html($('#result').html() + '<p>' + v.name + '<p/>');
-                });
-                $('#result').addClass("alert alert-success");
-            }, 'json');
+<script>
+  window.addEventListener("load", function () {
 
-        });
-    });</script>
+    $(function () {
+      $('#btn-all').on('click', function () {
+        $.get('api/PatientRecords', function (data) {
+          $('#result').empty();
+          $.each(data, function (i, v) {
+            $('#result').html($('#result').html() + '<p>' + v.name + '<p/>');
+          });
+          $('#result').addClass("alert alert-success");
+        }, 'json');
+
+      });
+    });
+  });</script>
